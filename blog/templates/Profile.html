@@ -1,0 +1,113 @@
+{% extends "root.html" %}
+    {% block Title %}{{ current_user.username}} - my Profile{% endblock %}
+
+{% block style %}
+<style>
+    body{
+        background-color: rgb(255, 226, 148);
+    }
+    .back{
+        background-color: rgb(255, 177, 74);
+        width: 100vw;
+        height: 300px;
+        position: absolute;
+        top: 150px;
+    }
+    .user_img{
+        position: absolute;
+        height: 250px;
+        bottom: 150px;
+        left: 50px;
+        pointer-events: none;
+    }
+    .username{
+        font-family: 'Big Boy';
+        color: white;
+        font-size: 100px;
+        position: absolute;
+        left: 330px;        
+        
+    }
+    .del{
+        position: absolute;
+        left: 71px;
+        top: 160px;
+        font-size: 30px;
+    }
+    .lau{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        position: absolute;
+        right: 440px;
+        top: 30px;
+        font-size: 20px;
+        color: aliceblue;
+    }
+    .us{
+        border-radius: 50px;
+        color: rgb(255, 255, 255);
+        background-color: black;
+        position: absolute;
+        top: 31px;
+        right: 200px;
+        border: 0;
+        box-sizing: border-box;
+        box-shadow: 0;
+        padding: 4px;
+        padding-left: 10px;
+    }
+    .us:hover{
+        background-color: rgb(63, 63, 63);
+        color: white;
+    }
+    .C1{
+        color: white;
+        position: absolute;
+        right: 310px;
+        top: 28px;
+    }
+    .write{
+        font-size: 50px;
+        font-family: 'Big Boy';
+        position: absolute;
+        left: 330px;
+        height: 60px;
+        top: 159px;
+        padding-top: 0;
+        width: 300px;
+    }
+    .Error{
+        color: white;
+        background-color: #ff6161;
+        border: 2px #da0000;
+        padding: 2px;
+        border-radius: 4px;
+        position: absolute;
+        right: 215px;
+        top: 68px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="back">
+        <img class="user_img" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="user">
+        <h3 class="username">{{ current_user.username }}</h3>
+        <a href="DelAcc" class="btn del btn-danger">Delete Account</a>
+        <a href="/logout" class="btn del btn-warning"
+        style="margin-top: 70px; margin-left: 41px ; color: white;">Logout</a>
+        <form action="/change">
+            <label style="right: 440px;" class="lau">cahnge username</label>
+            <input value="{{ current_user.username }}" class="us" name="user" type="text" required>
+            <input style="right: 100px;" class="btn btn-dark C1" value="Change" type="submit">
+        </form>
+        <form action="/change">
+            <label style="top: 100px;" class="lau">cahnge password</label>
+            <input style="top: 100px" value="{{ current_user.password }}" class="us" name="pass" type="password" required>
+            <input style="top: 100px; right: 100px;" class="btn btn-dark C1" value="Change" type="submit">
+        </form>
+        {% if Err %}
+            <p class="Error">This username is available</p>
+        {% endif %}
+        <a href="/write" class="btn btn-success write">Write</a>
+    </div>
+{% endblock %}

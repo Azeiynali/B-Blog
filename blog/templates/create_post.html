@@ -1,0 +1,51 @@
+{% extends "root.html" %}
+{% block Title %}write a new post -- {{ current_user.username}}{% endblock %}
+
+{% block style %}
+    <style>
+        body{
+            background-color: rgb(134, 1, 134);
+        }
+        .title{
+            width: 100vw;
+            height: 100px;
+            background-color: white;
+            border: 0;
+            border-radius: 0;
+            box-shadow: 0;
+            font-size: 30px;
+            padding: 0;
+            padding-bottom: 20px;
+        }
+        .text{
+            width: 100vw;
+            height: 68vh;
+            position: absolute;
+            top: 125px;
+            border-radius: 0;
+            box-shadow: 0;
+            font-size: 30px;
+        }
+        .create{
+            color: white;
+            position: absolute;
+            top: 15px;
+            width: 15vw;
+            left: 80px;
+        }
+        .create:hover{
+            color: white !important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    <div class="form-floating mb-3">
+        <input required name="title" dir="rtl" type="text" class="form-control title" id="floatingInput" placeholder="Title">
+        <label style="font-size: 20px;" for="floatingInput">Title</label>
+    </div>
+        <textarea required dir="rtl" name="content" type="email" class="form-control text" id="floatingInput"></textarea>
+    <input class="btn btn-outline-info create" name="content" type="submit" value="create">
+</form>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "root.html" %}
+{% block Title %}Home - B_Blog{% endblock %}
+
+{% block content %}
+{% include "static/messages.html" %}
+<h3>Posts</h3>
+<div class="jumbotron">
+    <div class="card">
+    {% for post in posts %}
+    <a class="card-body" href="/posts/{{ post.id }}">{{ post.Title }}</a>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

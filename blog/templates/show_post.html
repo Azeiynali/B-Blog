@@ -1,0 +1,35 @@
+{% extends "root.html" %}
+{% block Title %}{{ post.Title }}{% endblock %}
+
+{% block style %}
+<style>
+    body{
+        background-color: rgb(21, 22, 99);
+    }
+    h3{
+        color: white;
+        text-align: center;
+    }
+    p{
+        color: white;
+    }
+    .delete{
+        position: absolute;
+        left: 550px;
+        top: 133px;
+        font-size: 23px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+{% if post.writer == current_user %}
+<a href="/posts/{{ post.id }}/delete" class="btn delete btn-danger">Delete</a>
+<a href="/posts/{{ post.id }}/update" style="color: white;left: 700px;" class="btn delete btn-warning">Update</a>
+{% endif %}
+<h3>{{ post.Title }}</h3>
+<hr>
+<br>
+<br><br>
+<p dir="rtl">{{ post.content }}</p>
+{% endblock %}

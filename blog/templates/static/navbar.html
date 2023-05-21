@@ -1,0 +1,103 @@
+<style>
+    .navb{
+        margin-left: 500px;
+        border-radius: 40px;
+        background-color: #0d6efd;
+    {% if current_user.is_authenticated %}
+        width: 480px;
+    {% else %}
+        width: 360px;
+    {% endif %}
+        height: 50px;
+        list-style-type: none;
+        padding: 10px;
+    }
+    .rounded-5{
+        background-color: #0d6efd;
+        border-radius: 100%;
+        color: white;
+        box-shadow: 0;
+        border: 0;
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 13px;
+        transition: all .4s;
+        border: 0;
+    }
+    .rounded-5:hover{
+        background-color: white;
+        color: #0d6efd;
+    }
+    .red:hover{
+        background-color: red !important;
+        color: white !important;
+    }
+    .green:hover{
+        background-color: rgb(24, 143, 0) !important;
+        color: white !important;
+    }
+    .user_nav{
+        background-color: green;
+        position: absolute;
+        left: 310px;
+        border-radius: 40px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        z-index: -1;
+        top: 8px;
+        width: 230px;
+        height: 50px;
+        list-style-type: none;
+        padding: 10px;
+    }
+    .user_nav img{
+        width: 40px;
+        position: absolute;
+        top: 5px;
+    }
+    .user_nav h3{
+        width: 70px;
+        position: absolute;
+        top: 5px;
+        font-family: 'Big Boy';
+        color: white;
+        left: 59px;
+        font-size: 40px;
+    }
+</style>
+
+<div class="navbar navbar-expand-lg">
+
+<div class="navb">
+    <li class="nav-item">
+        <button onclick="goToPage('http://127.0.0.1:4000/')" class="rounded-5">Home</button>
+    </li>
+    <li class="nav-item">
+        {% if current_user.is_authenticated %}
+        <button onclick="goToPage('http://127.0.0.1:4000/write')" style="margin-left: 120px;"
+            class="rounded-5 green">Write</button>
+        <button onclick="goToPage('http://127.0.0.1:4000/logout')" style="margin-left: 240px;" class="red rounded-5">Log out</button>
+        <button onclick="goToPage('http://127.0.0.1:4000/profile')" style="margin-left: 360px;" class="rounded-5">profile</button>
+            <a href="/profile" class="user_nav" id="remove_in_profile">
+                <img id="remove_in_profile" src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="user_picture">
+                <h3 id="remove_in_profile">{{ current_user.username[:20] }} </h3>
+            </a>
+        {% else %}
+            <button onclick="goToPage('http://127.0.0.1:4000/register')" style="margin-left: 120px;"
+                class="rounded-5">Register</button>
+            <button onclick="goToPage('http://127.0.0.1:4000/login')" style="margin-left: 240px;" class="rounded-5">Login</button>
+        {% endif %}
+    </li>
+    <li class="nav-item">
+    </li>
+</div>
+    
+<div class="shs"></div>
+
+</div>
+<script>
+    function goToPage(x) {
+            window.location.href = x;
+        }
+</script>

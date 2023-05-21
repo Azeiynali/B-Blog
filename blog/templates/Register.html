@@ -1,0 +1,96 @@
+{% extends "root.html" %}
+{% block Title %}Register{% endblock %}
+{% block style %}
+
+<style>
+    body {
+        background-color: aliceblue !important;
+    }
+    .white{
+        position: absolute;
+        background-color: #003585;
+        height: 100vh;
+        width: 50vw;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+    .title_Reg{
+        user-select: none;
+        font-size: 150px;
+        top: -10px;
+        color: aliceblue;
+        position: absolute;
+        right: 290px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .la1{
+        color: white;
+        font-family: 'Big Boy';
+        position: absolute;
+        top: 200px;
+        right: 35vw;
+        font-size: 50px;
+    }
+    .inp{
+        padding: 20px;
+        font-size: 30px;
+        color: #7556ff;
+        font-family: 'Big Boy';
+        position: absolute;
+        display: block;
+        margin-top: 210px;
+        border: 0;
+        box-shadow: 0;
+        background-color: white;
+        width: 300px;
+        height: 50px;
+        border-radius: 100px;
+        right: 5vw;
+    }
+    .inp2{
+        padding: 20px;
+        font-size: 30px;
+        color: #7556ff;
+        font-family: 'Big Boy';
+        position: absolute;
+        display: block;
+        margin-top: 310px;
+        border: 0;
+        box-shadow: 0;
+        background-color: white;
+        width: 300px;
+        height: 50px;
+        border-radius: 100px;
+        right: 5vw;
+    }
+    .la2{
+        color: white;
+        font-family: 'Big Boy';
+        position: absolute;
+        top: 300px;
+        right: 35vw;
+        font-size: 50px;
+    }
+    .Lo-btn{
+        position: absolute;
+        top: 450px;
+        left: 19vw;
+        font-size: 50px;
+        border: 0;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+<div class="white">
+    <form action="/register">
+    <label class="la1">Username</label>
+    <input max="50" required name="user" class="inp" type="text">
+    <label class="la2">Password</label>
+    <input min="5" max="50" required class="inp2" name="pass" type="password">
+    <input readonly class="btn btn-success Lo-btn" type="submit" value="Register">
+    </form>
+</div>
+<!-- <img style="margin-left: 60px; pointer-events:none" src="https://cdn-icons-png.flaticon.com/512/4524/4524463.png" alt="book"> -->
+<h1 class="title_Reg">B</h1>
+{% endblock %}

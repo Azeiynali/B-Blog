@@ -1,0 +1,127 @@
+{% extends "root.html" %}
+{% block Title %}Login{% endblock %}
+
+{% block style %}
+
+<style>
+    body {
+        background-color: #003585 !important;
+    }
+    .white{
+        position: absolute;
+        background-color: aliceblue;
+        height: 100vh;
+        width: 50vw;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+    .title_Reg{
+        user-select: none;
+        font-size: 150px;
+        top: -10px;
+        color: #003585;
+        position: absolute;
+        right: 290px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .la1{
+        color: #7556ff;
+        font-family: 'Big Boy';
+        position: absolute;
+        top: 200px;
+        right: 35vw;
+        font-size: 50px;
+    }
+    .inp{
+        padding: 20px;
+        font-size: 30px;
+        color: wheat;
+        font-family: 'Big Boy';
+        position: absolute;
+        display: block;
+        margin-top: 210px;
+        border: 0;
+        box-shadow: 0;
+        background-color: #7556ff;
+        width: 300px;
+        height: 50px;
+        border-radius: 100px;
+        right: 5vw;
+    }
+    .inp2{
+        padding: 20px;
+        font-size: 30px;
+        color: wheat;
+        font-family: 'Big Boy';
+        position: absolute;
+        display: block;
+        margin-top: 310px;
+        border: 0;
+        box-shadow: 0;
+        background-color: #7556ff;
+        width: 300px;
+        height: 50px;
+        border-radius: 100px;
+        right: 5vw;
+    }
+    .la2{
+        color: #7556ff;
+        font-family: 'Big Boy';
+        position: absolute;
+        top: 300px;
+        right: 35vw;
+        font-size: 50px;
+    }
+    .Lo-btn{
+        position: absolute;
+        top: 450px;
+        left: 20vw;
+        font-size: 50px;
+        background-color: #7556ff;
+        border: 0;
+    }
+    .inp3{
+        font-size: 30px;
+        color: black;
+        font-family: 'Big Boy';
+        position: absolute;
+        margin-top: 382px;
+        border: 0;
+        box-shadow: 0;
+        background-color: #7556ff;
+        width: 200px;
+        height: 40px;
+        border-radius: 100px;
+        right: 12vw;
+    }
+    .la3{
+        z-index: 10;
+        position: absolute;
+        font-family: 'Big Boy';
+        font-size: 30px;
+        color:  #7556ff;
+        top: 380px;
+        right: 310px;
+    }
+</style>
+{% endblock style %}
+{% block content %}
+<div class="white">
+<form method="get" action="/login">
+    <label class="la1">Username</label>
+    <input required name="user" class="inp" type="text">
+    <label class="la2">Password</label>
+    <input required class="inp2" name="pass" type="password">
+    <input readonly class="btn btn-primary Lo-btn" type="submit" value="Login">
+    <p class="la3">Remmember me</p>
+    <input class="inp3" type="checkbox" name="Remember">
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+</form>
+</div>
+<!-- <img style="margin-left: 60px; pointer-events:none; position: relative; -->
+<!-- display: inline-block;" src="https://cdn-icons-png.flaticon.com/512/4524/4524463.png" alt="book"> -->
+<h1 class="title_Reg">B</h1>
+{% endblock %}
